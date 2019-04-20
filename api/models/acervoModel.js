@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const Project = require('./projectModel')
+const User = require('./userModel')
 var Schema = mongoose.Schema;
 
 
@@ -7,19 +9,11 @@ var ProjectSchema = new Schema({
     type: String,
     required: 'enter the name of the project'
   },
-  date: {
-    type: Date
+  projects: {
+      type: [Project]
   },
-  description: {
-      type: String,
-      required: 'enter a description to the project'
-  },
-  image: {
-    data: Buffer,
-    contentType: String
-  },
-  author: {
-    type: [String]
+  admin: {
+      type: [User]
   }
 });
 
