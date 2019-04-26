@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
 let Project = require('../models/projectModel')
-let User = require('../models/userModel')
 
 let middleware = {}
 
@@ -52,14 +51,6 @@ middleware.createProject = (req, res) => {
             return false
         }
     })
-}
-
-middleware.isLoggedIn = (req, res) => {
-    //checkToken
-}
-
-middleware.isAdmin = (req, res) => {
-    //getUser and check admin attribute
 }
 
 module.exports = middleware

@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 
 let Project = require('./api/models/projectModel')
 let apiRoutes = require('./api/routes/acervoRoutes')
+let userRoutes = require('./api/routes/userRoutes')
 let db = require('./db')
 
 db()
@@ -14,6 +15,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json())
 app.use('/api', apiRoutes)
+app.use('/api/user', userRoutes)
 
 let port = process.env.PORT || 3000
 

@@ -1,6 +1,12 @@
 const acervo = require('../controllers/acervoController')
 const express = require('express')
+
 const router = express.Router({mergeParams:true})
+
+    router.post('/', (req, res) => {
+      console.log(req.body)
+      return res.send('hello world').status(200)
+    })
 
     router.get('/projects', (req, res) => {
       let projectList = acervo.getAcervo(req)
