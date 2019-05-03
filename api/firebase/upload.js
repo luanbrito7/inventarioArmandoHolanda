@@ -6,7 +6,7 @@ let firebaseConn = {}
 
 firebaseConn.IMAGE = 'IMAGE'
 
-firebaseConn.upload = async (uri, type, name = null) => {
+firebaseConn.upload = async (buffer, type, name = null) => {
     let folder = " "
     folder = type == firebaseConn.IMAGE ?
         firebaseConn.IMAGE.toLocaleLowerCase()
@@ -20,7 +20,7 @@ firebaseConn.upload = async (uri, type, name = null) => {
     console.log(fileName)
     
     const firebasePath = `${folder}/${fileName}`
-    const imageRef = await storage.ref(firebasePath).put(uri)
+    const imageRef = await storage.ref(firebasePath).put(buffer)
 
     return {
         url: imageRef.downloadURL,

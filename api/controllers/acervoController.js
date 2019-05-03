@@ -39,16 +39,12 @@ middleware.updateProject = (req, res) => {
     })
 }
 
-middleware.createProject = (req, res) => {
-    checkModel(res.body.project).then((result) => {
-        if (result) {
-            Project.create(res.body.project, (err, newProject) => {
-                if (err) {
-                    return false
-                }
-            })
-        } else {
+middleware.createProject = (project) => {
+    Project.create(project, (err, newProject) => {
+        if (err) {
             return false
+        } else {
+            return newProject
         }
     })
 }
