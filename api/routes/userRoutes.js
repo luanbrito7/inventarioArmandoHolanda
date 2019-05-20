@@ -58,18 +58,9 @@ router.get('/', (req, res) => {
 			 });
 });
 
-module.exports = router
 
-app.listen(3000, () => {
-  console.log('App listening to port 3000');
-});
-
-/**
- * Adding new file to the storage
- */
-app.post('/upload', multer.single('file'), (req, res) => {
+router.post('/create', multer.single('file'), (req, res) => {
   console.log('Upload Image');
-
   let file = req.file;
   if (file) {
     uploadImageToStorage(file).then((success) => {
@@ -81,6 +72,7 @@ app.post('/upload', multer.single('file'), (req, res) => {
     });
   }
 });
+module.exports = router
 
 const uploadImageToStorage = (file) => {
   return new Promise((resolve, reject) => {

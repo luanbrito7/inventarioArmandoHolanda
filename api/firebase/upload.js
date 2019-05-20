@@ -1,6 +1,7 @@
 const uuid = require('uuid/v4')
 const firebase = require('firebase')
-const storage = firebase.storage()
+
+// const storage = firebase.storage()
 
 let firebaseConn = {}
 
